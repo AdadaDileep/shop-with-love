@@ -1,5 +1,6 @@
 import { ShoppingBag, Search, Menu } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,21 +10,36 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="font-display text-2xl font-semibold tracking-tight">
+          <Link to="/" className="font-display text-2xl font-semibold tracking-tight">
             <span className="text-gradient">LUXE</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {["New Arrivals", "Collections", "Accessories", "About"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth"
-              >
-                {item}
-              </a>
-            ))}
+            <Link
+              to="/new-arrivals"
+              className="font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth"
+            >
+              New Arrivals
+            </Link>
+            <Link
+              to="/collections"
+              className="font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth"
+            >
+              Collections
+            </Link>
+            <Link
+              to="/accessories"
+              className="font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth"
+            >
+              Accessories
+            </Link>
+            <Link
+              to="/about"
+              className="font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth"
+            >
+              About
+            </Link>
           </nav>
 
           {/* Actions */}
@@ -49,15 +65,30 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <nav className="md:hidden pt-4 pb-2 animate-fade-up">
-            {["New Arrivals", "Collections", "Accessories", "About"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="block py-3 font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth border-b border-border/50 last:border-0"
-              >
-                {item}
-              </a>
-            ))}
+            <Link
+              to="/new-arrivals"
+              className="block py-3 font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth border-b border-border/50"
+            >
+              New Arrivals
+            </Link>
+            <Link
+              to="/collections"
+              className="block py-3 font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth border-b border-border/50"
+            >
+              Collections
+            </Link>
+            <Link
+              to="/accessories"
+              className="block py-3 font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth border-b border-border/50"
+            >
+              Accessories
+            </Link>
+            <Link
+              to="/about"
+              className="block py-3 font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth"
+            >
+              About
+            </Link>
           </nav>
         )}
       </div>
